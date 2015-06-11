@@ -65,6 +65,9 @@ public class Loca_dora extends javax.swing.JFrame {
         data_aluguel = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         data_devolução = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         jInternalFrame2.setVisible(true);
 
@@ -200,11 +203,11 @@ public class Loca_dora extends javax.swing.JFrame {
 
         jLabel16.setText("Quantidade");
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Cadastrar");
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Limpar");
 
-        jButton6.setText("jButton6");
+        jButton6.setText("Sair");
 
         javax.swing.GroupLayout jInternalFrame4Layout = new javax.swing.GroupLayout(jInternalFrame4.getContentPane());
         jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
@@ -234,7 +237,7 @@ public class Loca_dora extends javax.swing.JFrame {
                                 .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jInternalFrame4Layout.createSequentialGroup()
                                 .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                                 .addComponent(jButton6))))
                     .addGroup(jInternalFrame4Layout.createSequentialGroup()
                         .addGap(176, 176, 176)
@@ -283,6 +286,12 @@ public class Loca_dora extends javax.swing.JFrame {
 
         jLabel15.setText("Data_devolução");
 
+        jButton7.setText("Cadastrar");
+
+        jButton8.setText("Limpar");
+
+        jButton9.setText("Sair");
+
         javax.swing.GroupLayout jInternalFrame5Layout = new javax.swing.GroupLayout(jInternalFrame5.getContentPane());
         jInternalFrame5.getContentPane().setLayout(jInternalFrame5Layout);
         jInternalFrame5Layout.setHorizontalGroup(
@@ -302,6 +311,16 @@ public class Loca_dora extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(data_devolução, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 303, Short.MAX_VALUE))
+            .addGroup(jInternalFrame5Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(jButton8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jInternalFrame5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addGap(58, 58, 58))
         );
         jInternalFrame5Layout.setVerticalGroup(
             jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +337,17 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(data_devolução, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 169, Short.MAX_VALUE))
+                .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame5Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton7)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton9)
+                        .addGap(22, 22, 22)))
+                .addComponent(jButton8)
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Aluguel", jInternalFrame5);
@@ -327,7 +356,7 @@ public class Loca_dora extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -386,6 +415,9 @@ public class Loca_dora extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
