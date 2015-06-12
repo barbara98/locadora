@@ -70,6 +70,10 @@ public class Filme {
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
+
+    public String getid() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
     
     
     
