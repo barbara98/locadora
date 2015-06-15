@@ -20,6 +20,15 @@ public class Aluguel {
         this.idAluguel = idAluguel;
     }
 
+    public Aluguel(String nota_fiscal, String data_aluguel, String data_devolução) {
+        this.nota_fiscal = nota_fiscal;
+        this.data_aluguel = data_aluguel;
+        this.data_devolução = data_devolução;
+    }
+    
+    
+
+
     public int getIdAluguel() {
         return idAluguel;
     }
@@ -52,6 +61,8 @@ public class Aluguel {
     public void setData_devolução(String data_devolução) {
         this.data_devolução = data_devolução;
     }
+
+   
     
     
     

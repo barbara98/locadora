@@ -20,7 +20,7 @@ class Util {
     Connection conecta() {
          Connection conexao = null;
 
-        String url = "jdbc:mysql://192.200.63.121/Locadora";  //Nome da base de dados
+        String url = "jdbc:mysql://192.200.63.121/locadora";  //Nome da base de dados
         String user = "root"; //nome do usuário do MySQL
         String password = "123456"; //senha do MySQL
         try {
