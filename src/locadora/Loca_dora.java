@@ -5,6 +5,7 @@
 package locadora;
 
 import Controller.AluguelController;
+import Controller.ClienteController;
 import Model.Aluguel;
 import Model.Cliente;
 import Model.Filme;
@@ -502,8 +503,15 @@ data_de_nascimento.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
-       //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
-        Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),data_de_nascimento.getText(),Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+        try {
+            //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
+             Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),Integer.parseInt(data_de_nascimento.getText()),Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+             ClienteController cCtr= new ClienteController();
+             cCtr.Cadastrar(cliente);
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
        
     }//GEN-LAST:event_cadatrarclienteActionPerformed
 
