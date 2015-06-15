@@ -28,7 +28,7 @@ public class ClienteController {
             statement.setString(1, c.getNome());
             statement.setString(2, c.getEndereco());
             statement.setString(3, c.getEmail());
-            statement.setString(4, c.getData_de_nascimento());
+            statement.setDate(4, c.getData_de_nascimento());
             statement.setInt(5, c.getTelefone());
             statement.setInt(6, c.getCpf()); 
             

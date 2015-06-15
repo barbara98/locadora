@@ -9,7 +9,9 @@ import Controller.ClienteController;
 import Model.Aluguel;
 import Model.Cliente;
 import Model.Filme;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -123,6 +125,12 @@ public class Loca_dora extends javax.swing.JFrame {
         jLabel6.setText("Email");
 
         jLabel7.setText("Data de nascimento");
+
+        data_de_nascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                data_de_nascimentoActionPerformed(evt);
+            }
+        });
 
         cadatrarcliente.setText("Cadastrar");
         cadatrarcliente.addActionListener(new java.awt.event.ActionListener() {
@@ -504,10 +512,11 @@ data_de_nascimento.setText("");
 
     private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
         try {
+                Date dt1 = new SimpleDateFormat("dd-mm-YYYY").parse(data_de_nascimento.getText());
             //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
-             Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),Integer.parseInt(data_de_nascimento.getText()),Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+             Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),dt1,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
              ClienteController cCtr= new ClienteController();
-             cCtr.Cadastrar(cliente);
+             cCtr.Cadastrar(cliente);   
         } catch (SQLException ex) {
             Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -518,6 +527,10 @@ data_de_nascimento.setText("");
     private void id3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_id3ActionPerformed
+
+    private void data_de_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_de_nascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_data_de_nascimentoActionPerformed
 
     /**
      * @param args the command line arguments

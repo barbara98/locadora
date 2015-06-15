@@ -4,17 +4,20 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author info206
  */
 public class Cliente {
     
-    String nome,endereco,email,data_de_nascimento;
+    String nome,endereco,email;
+    Date data_de_nascimento;
     int id,telefone,cpf;
 
     //para cadastrar o cliente, não precisamos do atributo ID
-    public Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf) {
+    public Cliente(String nome, String endereco, String email, Date data_de_nascimento, int telefone, int cpf) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
@@ -57,11 +60,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getData_de_nascimento() {
+    public Date getData_de_nascimento() {
         return data_de_nascimento;
     }
 
-    public void setData_de_nascimento(String data_de_nascimento) {
+    public void setData_de_nascimento(Date data_de_nascimento) {
         this.data_de_nascimento = data_de_nascimento;
     }
 
@@ -89,13 +92,7 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public String gettelefone() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 
-    public String getcpf() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
     
      
 }
