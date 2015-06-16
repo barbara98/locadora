@@ -68,7 +68,7 @@ public class Loca_dora extends javax.swing.JFrame {
         codigo = new javax.swing.JTextField();
         quantidade = new javax.swing.JTextField();
         quantidadefilme = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jBCadastrar = new javax.swing.JButton();
         botaolimparfilme = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jInternalFrame5 = new javax.swing.JInternalFrame();
@@ -80,7 +80,7 @@ public class Loca_dora extends javax.swing.JFrame {
         data_devolução = new javax.swing.JTextField();
         cadastraraluguel = new javax.swing.JButton();
         botaolimpar = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        botaosair = new javax.swing.JButton();
         idaluguel = new javax.swing.JLabel();
         id3 = new javax.swing.JTextField();
         nomefilmee = new javax.swing.JLabel();
@@ -241,10 +241,10 @@ public class Loca_dora extends javax.swing.JFrame {
 
         quantidadefilme.setText("Quantidade");
 
-        jButton4.setText("Cadastrar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jBCadastrar.setText("Cadastrar");
+        jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jBCadastrarActionPerformed(evt);
             }
         });
 
@@ -289,13 +289,16 @@ public class Loca_dora extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jInternalFrame4Layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                                .addGap(0, 371, Short.MAX_VALUE)
                                 .addComponent(jButton6))))
                     .addGroup(jInternalFrame4Layout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(botaolimparfilme)))
                 .addGap(21, 21, 21))
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBCadastrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jInternalFrame4Layout.setVerticalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,17 +319,13 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantidadefilme))
-                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)
-                        .addGap(30, 30, 30)))
+                .addGap(42, 42, 42)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBCadastrar)
+                .addGap(8, 8, 8)
                 .addComponent(botaolimparfilme)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Filme", jInternalFrame4);
@@ -353,10 +352,10 @@ public class Loca_dora extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setText("Sair");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        botaosair.setText("Sair");
+        botaosair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                botaosairActionPerformed(evt);
             }
         });
 
@@ -380,7 +379,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addComponent(botaolimpar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(jButton9)
+                .addComponent(botaosair)
                 .addGap(28, 28, 28))
             .addGroup(jInternalFrame5Layout.createSequentialGroup()
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +434,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastraraluguel)
                     .addComponent(botaolimpar)
-                    .addComponent(jButton9))
+                    .addComponent(botaosair))
                 .addGap(34, 86, Short.MAX_VALUE))
         );
 
@@ -449,7 +448,7 @@ public class Loca_dora extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
         );
 
         pack();
@@ -468,9 +467,9 @@ public class Loca_dora extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cadastraraluguelActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
 System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_botaosairActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 System.exit(0);        // TODO add your handling code here:
@@ -481,7 +480,7 @@ System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void botaolimparclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparclienteActionPerformed
-nome.setText(""); 
+ 
 telefone.setText(""); 
 endereço.setText(""); 
 cpf.setText(""); 
@@ -491,7 +490,7 @@ data_de_nascimento.setText("");
     }//GEN-LAST:event_botaolimparclienteActionPerformed
 
     private void botaolimparfilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparfilmeActionPerformed
-    nome2.setText(""); 
+    nome.setText(""); 
     categoria.setText("");
     codigo.setText(""); 
     quantidade.setText(""); 
@@ -506,11 +505,11 @@ data_de_nascimento.setText("");
     // TODO add your handling code here:
     }//GEN-LAST:event_botaolimparActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
 //(Nome,Categoria,Codigo,Quantidade,id)
-        Filme filme= new Filme(nomefilme.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());
+     Filme filme= new Filme(nomefilme.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());  
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jBCadastrarActionPerformed
 
     @SuppressWarnings("static-access")
     private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
@@ -582,6 +581,7 @@ data_de_nascimento.setText("");
     private javax.swing.JButton botaolimpar;
     private javax.swing.JButton botaolimparcliente;
     private javax.swing.JButton botaolimparfilme;
+    private javax.swing.JButton botaosair;
     private javax.swing.JButton cadastraraluguel;
     private javax.swing.JButton cadatrarcliente;
     private javax.swing.JTextField categoria;
@@ -598,10 +598,9 @@ data_de_nascimento.setText("");
     private javax.swing.JTextField endereço;
     private javax.swing.JTextField id3;
     private javax.swing.JLabel idaluguel;
+    private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
