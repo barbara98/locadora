@@ -6,6 +6,7 @@ package locadora;
 
 import Controller.AluguelController;
 import Controller.ClienteController;
+import Controller.FilmeController;
 import Model.Aluguel;
 import Model.Cliente;
 import Model.Filme;
@@ -58,7 +59,7 @@ public class Loca_dora extends javax.swing.JFrame {
         data_de_nascimento = new javax.swing.JTextField();
         cadatrarcliente = new javax.swing.JButton();
         botaolimparcliente = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBsair = new javax.swing.JButton();
         jInternalFrame4 = new javax.swing.JInternalFrame();
         nomefilme = new javax.swing.JLabel();
         nome2 = new javax.swing.JTextField();
@@ -83,8 +84,6 @@ public class Loca_dora extends javax.swing.JFrame {
         botaosair = new javax.swing.JButton();
         idaluguel = new javax.swing.JLabel();
         id3 = new javax.swing.JTextField();
-        nomefilmee = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
 
         jInternalFrame2.setVisible(true);
 
@@ -148,10 +147,10 @@ public class Loca_dora extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBsair.setText("Sair");
+        jBsair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBsairActionPerformed(evt);
             }
         });
 
@@ -196,7 +195,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jBsair)
                 .addGap(37, 37, 37))
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -223,7 +222,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(cadatrarcliente)
                 .addGap(5, 5, 5)
-                .addComponent(jButton3)
+                .addComponent(jBsair)
                 .addGap(14, 14, 14)
                 .addComponent(botaolimparcliente)
                 .addContainerGap())
@@ -367,8 +366,6 @@ public class Loca_dora extends javax.swing.JFrame {
             }
         });
 
-        nomefilmee.setText("Nome");
-
         javax.swing.GroupLayout jInternalFrame5Layout = new javax.swing.GroupLayout(jInternalFrame5.getContentPane());
         jInternalFrame5.getContentPane().setLayout(jInternalFrame5Layout);
         jInternalFrame5Layout.setHorizontalGroup(
@@ -399,13 +396,8 @@ public class Loca_dora extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(nota, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                .addComponent(id3))))
-                    .addGroup(jInternalFrame5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(nomefilmee)
-                        .addGap(81, 81, 81)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(283, Short.MAX_VALUE))
+                                .addComponent(id3)))))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         jInternalFrame5Layout.setVerticalGroup(
             jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,11 +418,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(datadevoluçao)
                     .addComponent(data_devolução, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomefilmee)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastraraluguel)
                     .addComponent(botaolimpar)
@@ -448,36 +436,19 @@ public class Loca_dora extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadastraraluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraraluguelActionPerformed
-        try {
-            //Nota_fiscal,Data_aluguel,Data_devolução,idAluguel
-             Aluguel aluguel= new Aluguel(notafiscal.getText(),dataaluguel.getText(),datadevoluçao.getText());
-             AluguelController controler= new AluguelController();
-             controler.Cadastrar(aluguel);
-        } catch (SQLException ex) {
-            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-
-    }//GEN-LAST:event_cadastraraluguelActionPerformed
-
-    private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
-System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_botaosairActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsairActionPerformed
 System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jBsairActionPerformed
 
     private void botaolimparclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparclienteActionPerformed
  
@@ -497,18 +468,21 @@ data_de_nascimento.setText("");
    
     }//GEN-LAST:event_botaolimparfilmeActionPerformed
 
-    private void botaolimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparActionPerformed
-    id3.setText("");
-   nota .setText("");
-   data_aluguel .setText("");
-   data_devolução .setText("");
-    // TODO add your handling code here:
-    }//GEN-LAST:event_botaolimparActionPerformed
-
+    @SuppressWarnings("static-access")
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
 //(Nome,Categoria,Codigo,Quantidade,id)
      Filme filme= new Filme(nomefilme.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());  
 // TODO add your handling code here:
+     FilmeController fCtr= new FilmeController ();
+        try {
+            fCtr.Cadastrar(filme);
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+            
+                                                
+
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
     @SuppressWarnings("static-access")
@@ -535,13 +509,37 @@ data_de_nascimento.setText("");
        
     }//GEN-LAST:event_cadatrarclienteActionPerformed
 
-    private void id3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_id3ActionPerformed
-
     private void data_de_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_de_nascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_data_de_nascimentoActionPerformed
+
+    private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_botaosairActionPerformed
+
+    private void botaolimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparActionPerformed
+        id3.setText("");
+        nota .setText("");
+        data_aluguel .setText("");
+        data_devolução .setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaolimparActionPerformed
+
+    private void cadastraraluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraraluguelActionPerformed
+        try {
+            //Nota_fiscal,Data_aluguel,Data_devolução,idAluguel
+            Aluguel aluguel= new Aluguel(notafiscal.getText(),dataaluguel.getText(),datadevoluçao.getText());
+            AluguelController controler= new AluguelController();
+            controler.Cadastrar(aluguel);
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_cadastraraluguelActionPerformed
+
+    private void id3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,7 +597,7 @@ data_de_nascimento.setText("");
     private javax.swing.JTextField id3;
     private javax.swing.JLabel idaluguel;
     private javax.swing.JButton jBCadastrar;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBsair;
     private javax.swing.JButton jButton6;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -614,11 +612,9 @@ data_de_nascimento.setText("");
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField nome2;
     private javax.swing.JLabel nomefilme;
-    private javax.swing.JLabel nomefilmee;
     private javax.swing.JTextField nota;
     private javax.swing.JLabel notafiscal;
     private javax.swing.JTextField quantidade;

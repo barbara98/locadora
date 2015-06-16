@@ -20,13 +20,13 @@ public class FilmeController {
 
             Util util = new Util();
              try (Connection conexao = util.conecta()) {
-                 String sql = "INSERT INTO filme (Nome,Categoria,Codigo,Quantidade,id) VALUES (?, ?, ?, ?, ?)";
+                 String sql = "INSERT INTO Filme (Nome,Categoria,Codigo,Quantidade) VALUES (?, ?, ?, ?)";
                  PreparedStatement statement = conexao.prepareStatement(sql);// note que agora criamos um Statement de forma diferente
                  statement.setString(1, f.getNome());
                  statement.setString(2, f.getCategoria());
                  statement.setString(3, f.getCodigo());
                  statement.setString(4, f.getQuantidade());
-                 statement.setString(5, f.getid());
+                
           
             
 

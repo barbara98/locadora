@@ -71,10 +71,7 @@ public class Filme {
         this.quantidade = quantidade;
     }
 
-    public String getid() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-    
+
     
     
 }

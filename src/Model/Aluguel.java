@@ -17,7 +17,7 @@ public class Aluguel {
         this.nota_fiscal = nota_fiscal;
         this.data_aluguel = data_aluguel;
         this.data_devolução = data_devolução;
-        this.idAluguel = idAluguel;
+      
     }
 
     public Aluguel(String nota_fiscal, String data_aluguel, String data_devolução) {
