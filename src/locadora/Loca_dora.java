@@ -9,11 +9,13 @@ import Controller.ClienteController;
 import Model.Aluguel;
 import Model.Cliente;
 import Model.Filme;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -510,13 +512,23 @@ data_de_nascimento.setText("");
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    @SuppressWarnings("static-access")
     private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
         try {
-                Date dt1 = new SimpleDateFormat("dd-mm-YYYY").parse(data_de_nascimento.getText());
-            //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
-             Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),dt1,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+    
+            java.util.Date dt1 = new SimpleDateFormat("dd/MM/yyyy").parse(data_de_nascimento.getText());
+             java.sql.Date  dataConvertida;
+                          
+            dataConvertida =  new java.sql.Date(dt1.getTime());
+              Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(), dataConvertida,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+
+
+                //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
+             //Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),dt1,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
              ClienteController cCtr= new ClienteController();
              cCtr.Cadastrar(cliente);   
+        } catch (ParseException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
         }
