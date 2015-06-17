@@ -18,13 +18,17 @@ public class AluguelController {
        public void Cadastrar(Aluguel a) throws SQLException {
          Util util = new Util();
           try (Connection conexao = util.conecta()){
-         String sql ="INSERT INTO Aluguel (Nota_fiscal,Data_aluguel,Data_devolução,idAluguel,Cliente_idCliente)VALUES (?, ?, ?,?,?)";
+         String sql ="INSERT INTO Aluguel (Nota_fiscal,Data_aluguel,Data_devolução,idAluguel,Cliente_idCliente,Filme_idFilme)VALUES (?, ?, ?,?,?,?)";
          PreparedStatement statement = conexao.prepareStatement(sql);
          statement.setString(1, a.getNota_fiscal());
          statement.setString(2, a.getData_aluguel());
          statement.setString(3, a.getData_devolução());
       //Lembrar de pegar o id do aluguel(q não é auto incremento) e do cliente
-         statement.setInt(4, 2);
+         statement.setInt(4, a.getIdAluguel());
+         statement.setInt(5, a.IdCliente ());
+         statement.setInt(6, a.IdFilme ());
+        
+         
             
     
          int rowsInserted = statement.executeUpdate(); // Executa a inserção e retorna valor != 0 se inseriu (ID de inserção do banco)

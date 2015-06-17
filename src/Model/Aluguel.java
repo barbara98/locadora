@@ -12,11 +12,14 @@ public class Aluguel {
     
     String nota_fiscal,data_aluguel,data_devolução;
     int idAluguel;
+    int IdCliente, IDFilme;
 
-    public Aluguel(String nota_fiscal, String data_aluguel, String data_devolução, int idAluguel) {
+    public Aluguel(String nota_fiscal, String data_aluguel, String data_devolução, int idAluguel,int IdCliente,int IDFilme) {
         this.nota_fiscal = nota_fiscal;
         this.data_aluguel = data_aluguel;
         this.data_devolução = data_devolução;
+        this.IDFilme = IDFilme;
+        this.IdCliente = IdCliente;
       
     }
 
@@ -61,6 +64,18 @@ public class Aluguel {
     public void setData_devolução(String data_devolução) {
         this.data_devolução = data_devolução;
     }
+
+    public int IdCliente() {
+       return this.IdCliente;
+    }
+
+    public int IdFilme() {
+       return this.IDFilme;
+    }
+
+    
+
+   
 
    
     

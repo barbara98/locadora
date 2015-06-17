@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -83,7 +84,9 @@ public class Loca_dora extends javax.swing.JFrame {
         botaolimpar = new javax.swing.JButton();
         botaosair = new javax.swing.JButton();
         idaluguel = new javax.swing.JLabel();
-        id3 = new javax.swing.JTextField();
+        idAluguel = new javax.swing.JTextField();
+        combo_cliente = new javax.swing.JComboBox();
+        combo_filme = new javax.swing.JComboBox();
 
         jInternalFrame2.setVisible(true);
 
@@ -112,6 +115,12 @@ public class Loca_dora extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jInternalFrame1.setVisible(true);
 
@@ -335,6 +344,12 @@ public class Loca_dora extends javax.swing.JFrame {
 
         dataaluguel.setText("Data_aluguel");
 
+        data_aluguel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                data_aluguelFocusLost(evt);
+            }
+        });
+
         datadevoluçao.setText("Data_devolução");
 
         cadastraraluguel.setText("Cadastrar");
@@ -360,11 +375,15 @@ public class Loca_dora extends javax.swing.JFrame {
 
         idaluguel.setText("idAluguel");
 
-        id3.addActionListener(new java.awt.event.ActionListener() {
+        idAluguel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id3ActionPerformed(evt);
+                idAluguelActionPerformed(evt);
             }
         });
+
+        combo_cliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        combo_filme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jInternalFrame5Layout = new javax.swing.GroupLayout(jInternalFrame5.getContentPane());
         jInternalFrame5.getContentPane().setLayout(jInternalFrame5Layout);
@@ -384,20 +403,29 @@ public class Loca_dora extends javax.swing.JFrame {
                     .addGroup(jInternalFrame5Layout.createSequentialGroup()
                         .addComponent(datadevoluçao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(data_devolução, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame5Layout.createSequentialGroup()
-                            .addComponent(dataaluguel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(data_aluguel, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame5Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(idaluguel)
-                            .addGap(18, 18, 18)
-                            .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(nota, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                .addComponent(id3)))))
-                .addContainerGap(292, Short.MAX_VALUE))
+                        .addComponent(data_devolução, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(303, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame5Layout.createSequentialGroup()
+                .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInternalFrame5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(combo_filme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame5Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame5Layout.createSequentialGroup()
+                                .addComponent(dataaluguel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(data_aluguel, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(idaluguel)
+                                .addGap(18, 18, 18)
+                                .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nota, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                    .addComponent(idAluguel))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(91, 91, 91))
         );
         jInternalFrame5Layout.setVerticalGroup(
             jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,12 +433,15 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idaluguel)
-                    .addComponent(id3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                    .addComponent(idAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(notafiscal)
                     .addComponent(nota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(3, 3, 3)
+                .addComponent(combo_filme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(jInternalFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataaluguel)
                     .addComponent(data_aluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -423,7 +454,7 @@ public class Loca_dora extends javax.swing.JFrame {
                     .addComponent(cadastraraluguel)
                     .addComponent(botaolimpar)
                     .addComponent(botaosair))
-                .addGap(34, 86, Short.MAX_VALUE))
+                .addGap(34, 85, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Aluguel", jInternalFrame5);
@@ -471,7 +502,7 @@ data_de_nascimento.setText("");
     @SuppressWarnings("static-access")
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
 //(Nome,Categoria,Codigo,Quantidade,id)
-     Filme filme= new Filme(nomefilme.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());  
+     Filme filme= new Filme(nome2.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());  
 // TODO add your handling code here:
      FilmeController fCtr= new FilmeController ();
         try {
@@ -518,7 +549,7 @@ data_de_nascimento.setText("");
     }//GEN-LAST:event_botaosairActionPerformed
 
     private void botaolimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparActionPerformed
-        id3.setText("");
+        idAluguel.setText("");
         nota .setText("");
         data_aluguel .setText("");
         data_devolução .setText("");
@@ -528,7 +559,12 @@ data_de_nascimento.setText("");
     private void cadastraraluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraraluguelActionPerformed
         try {
             //Nota_fiscal,Data_aluguel,Data_devolução,idAluguel
-            Aluguel aluguel= new Aluguel(notafiscal.getText(),dataaluguel.getText(),datadevoluçao.getText());
+          ClienteController c = new  ClienteController();
+          FilmeController f = new FilmeController();
+       
+            int Cliente_idCliente = c.PegaIdPeloNomeSelecionado((String)combo_cliente.getSelectedItem());
+           int Filme_IdFilme = f.PegaIdPeloNomeSelecionado((String)combo_filme.getSelectedItem() );
+            Aluguel aluguel= new Aluguel(notafiscal.getText(),dataaluguel.getText(),datadevoluçao.getText(),Integer.parseInt(idAluguel.getText()),Cliente_idCliente,Filme_IdFilme);
             AluguelController controler= new AluguelController();
             controler.Cadastrar(aluguel);
         } catch (SQLException ex) {
@@ -537,9 +573,33 @@ data_de_nascimento.setText("");
 
     }//GEN-LAST:event_cadastraraluguelActionPerformed
 
-    private void id3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id3ActionPerformed
+    private void idAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idAluguelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id3ActionPerformed
+    }//GEN-LAST:event_idAluguelActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+    FilmeController f = new FilmeController();
+        Vector  s = f.getNomes();
+  //carrega os valore da função  getNomes
+         combo_filme.setModel(new  javax.swing.DefaultComboBoxModel(s));
+         
+         ClienteController c = new ClienteController();
+         Vector cli = c.getNomes();
+         
+         combo_cliente.setModel(new  javax.swing.DefaultComboBoxModel(cli));
+
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void data_aluguelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_data_aluguelFocusLost
+        // TODO add your handling code here:
+       String data = data_aluguel.getText().toString();
+        String[] partes = data.split("/");
+        int diaI = Integer.parseInt(partes[0]);
+        int diaF = diaI+3;
+        data_devolução.setText(diaF+"/"+partes[1]+"/"+partes[2]);
+        System.out.print(partes[0]);
+    }//GEN-LAST:event_data_aluguelFocusLost
 
     /**
      * @param args the command line arguments
@@ -586,6 +646,8 @@ data_de_nascimento.setText("");
     private javax.swing.JLabel categoriafilme;
     private javax.swing.JTextField codigo;
     private javax.swing.JLabel codigofilme;
+    private javax.swing.JComboBox combo_cliente;
+    private javax.swing.JComboBox combo_filme;
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField data_aluguel;
     private javax.swing.JTextField data_de_nascimento;
@@ -594,7 +656,7 @@ data_de_nascimento.setText("");
     private javax.swing.JLabel datadevoluçao;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereço;
-    private javax.swing.JTextField id3;
+    private javax.swing.JTextField idAluguel;
     private javax.swing.JLabel idaluguel;
     private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jBsair;

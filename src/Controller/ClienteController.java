@@ -7,8 +7,13 @@ package Controller;
 import Model.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,6 +49,44 @@ public class ClienteController {
         }
     }
     
+     public Vector  getNomes(){
+                    Vector s =new Vector();
+
+        try {
+     Util util= new Util();
+     Connection conexao = util.conecta();
+     String sql= "Select Nome from Cliente";
+         Statement statement = conexao.createStatement();
+   ResultSet result = statement.executeQuery(sql);
+   while (result.next()){               
+        s.add(result.getString("Nome"));
+     }
+            
+     
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return s;
+
+    }
+    
+          public int  PegaIdPeloNomeSelecionado(String nome){
+        int id=-1;
+            try {
+            Util util= new Util();
+            Connection conexao = util.conecta();
+            String sql= "Select idCliente from Cliente where Nome like '"+nome+"'";
+                Statement statement = conexao.createStatement();
+          ResultSet result = statement.executeQuery(sql);
+           while (result.next()){               
+               id=result.getInt("idCliente");
+            }
+       } catch (SQLException ex) {
+            Logger.getLogger(FilmeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
     public ArrayList listar(){
         return null;
     
