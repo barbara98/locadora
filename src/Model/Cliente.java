@@ -15,6 +15,7 @@ public class Cliente {
     String nome,endereco,email;
     Date data_de_nascimento;
     int id,telefone,cpf;
+   
 
     //para cadastrar o cliente, não precisamos do atributo ID
     public Cliente(String nome, String endereco, String email, Date data_de_nascimento, int telefone, int cpf) {
@@ -35,6 +36,7 @@ public class Cliente {
         this.telefone = telefone;
         this.cpf = cpf;
     }
+    
 
     public String getNome() {
         return nome;
@@ -91,6 +93,8 @@ public class Cliente {
     public void setCpf(int cpf) {
         this.cpf = cpf;
     }
+
+
 
 
     

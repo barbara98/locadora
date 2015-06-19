@@ -13,11 +13,13 @@ import Model.Filme;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import sun.org.mozilla.javascript.internal.ast.CatchClause;
 
 /**
  *
@@ -87,6 +89,16 @@ public class Loca_dora extends javax.swing.JFrame {
         idAluguel = new javax.swing.JTextField();
         combo_cliente = new javax.swing.JComboBox();
         combo_filme = new javax.swing.JComboBox();
+        jInternalFrame6 = new javax.swing.JInternalFrame();
+        jLabel1 = new javax.swing.JLabel();
+        consultacpf = new javax.swing.JTextField();
+        consultarcpf = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        areacliente = new javax.swing.JTextArea();
+        jInternalFrame7 = new javax.swing.JInternalFrame();
+        listarcliente = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablecliente = new javax.swing.JTable();
 
         jInternalFrame2.setVisible(true);
 
@@ -168,23 +180,23 @@ public class Loca_dora extends javax.swing.JFrame {
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(endereço, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(telefone)
+                            .addComponent(endereço)))
                     .addComponent(cadatrarcliente))
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addGap(28, 28, 28)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
@@ -193,7 +205,7 @@ public class Loca_dora extends javax.swing.JFrame {
                             .addComponent(cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                             .addComponent(email)))
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(data_de_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -228,7 +240,7 @@ public class Loca_dora extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
                     .addComponent(data_de_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(cadatrarcliente)
                 .addGap(5, 5, 5)
                 .addComponent(jBsair)
@@ -280,25 +292,27 @@ public class Loca_dora extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame4Layout.createSequentialGroup()
-                                .addComponent(nomefilme)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nome2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame4Layout.createSequentialGroup()
-                                    .addComponent(codigofilme)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(codigo))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame4Layout.createSequentialGroup()
-                                    .addComponent(categoriafilme)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jInternalFrame4Layout.createSequentialGroup()
-                                .addComponent(quantidadefilme)
-                                .addGap(28, 28, 28)
-                                .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame4Layout.createSequentialGroup()
                                 .addGap(0, 371, Short.MAX_VALUE)
-                                .addComponent(jButton6))))
+                                .addComponent(jButton6))
+                            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                                        .addComponent(nomefilme)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nome2))
+                                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                                        .addComponent(codigofilme)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(codigo))
+                                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                                        .addComponent(quantidadefilme)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(quantidade))
+                                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                                        .addComponent(categoriafilme)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jInternalFrame4Layout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(botaolimparfilme)))
@@ -333,7 +347,7 @@ public class Loca_dora extends javax.swing.JFrame {
                 .addComponent(jBCadastrar)
                 .addGap(8, 8, 8)
                 .addComponent(botaolimparfilme)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Filme", jInternalFrame4);
@@ -344,6 +358,11 @@ public class Loca_dora extends javax.swing.JFrame {
 
         dataaluguel.setText("Data_aluguel");
 
+        data_aluguel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                data_aluguelActionPerformed(evt);
+            }
+        });
         data_aluguel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 data_aluguelFocusLost(evt);
@@ -384,6 +403,11 @@ public class Loca_dora extends javax.swing.JFrame {
         combo_cliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         combo_filme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_filme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_filmeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrame5Layout = new javax.swing.GroupLayout(jInternalFrame5.getContentPane());
         jInternalFrame5.getContentPane().setLayout(jInternalFrame5Layout);
@@ -454,10 +478,119 @@ public class Loca_dora extends javax.swing.JFrame {
                     .addComponent(cadastraraluguel)
                     .addComponent(botaolimpar)
                     .addComponent(botaosair))
-                .addGap(34, 85, Short.MAX_VALUE))
+                .addGap(34, 123, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Aluguel", jInternalFrame5);
+
+        jInternalFrame6.setVisible(true);
+
+        jLabel1.setText("CPF");
+
+        consultacpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultacpfActionPerformed(evt);
+            }
+        });
+
+        consultarcpf.setText("Consultar");
+        consultarcpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarcpfActionPerformed(evt);
+            }
+        });
+
+        areacliente.setColumns(20);
+        areacliente.setRows(5);
+        jScrollPane1.setViewportView(areacliente);
+
+        javax.swing.GroupLayout jInternalFrame6Layout = new javax.swing.GroupLayout(jInternalFrame6.getContentPane());
+        jInternalFrame6.getContentPane().setLayout(jInternalFrame6Layout);
+        jInternalFrame6Layout.setHorizontalGroup(
+            jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(consultacpf, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addComponent(consultarcpf)
+                .addGap(114, 114, 114))
+            .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jInternalFrame6Layout.setVerticalGroup(
+            jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jInternalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(consultacpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInternalFrame6Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(consultarcpf)))
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Consultar Cliente", jInternalFrame6);
+
+        jInternalFrame7.setVisible(true);
+
+        listarcliente.setText("Listar");
+        listarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarclienteActionPerformed(evt);
+            }
+        });
+
+        tablecliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Email", "Endereço", "CPF", "Data de nascimento"
+            }
+        ));
+        jScrollPane2.setViewportView(tablecliente);
+
+        javax.swing.GroupLayout jInternalFrame7Layout = new javax.swing.GroupLayout(jInternalFrame7.getContentPane());
+        jInternalFrame7.getContentPane().setLayout(jInternalFrame7Layout);
+        jInternalFrame7Layout.setHorizontalGroup(
+            jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(listarcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
+        );
+        jInternalFrame7Layout.setVerticalGroup(
+            jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame7Layout.createSequentialGroup()
+                .addComponent(listarcliente)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Listar Cliente", jInternalFrame7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -473,76 +606,26 @@ public class Loca_dora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsairActionPerformed
-System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_jBsairActionPerformed
-
-    private void botaolimparclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparclienteActionPerformed
- 
-telefone.setText(""); 
-endereço.setText(""); 
-cpf.setText(""); 
-email.setText(""); 
-data_de_nascimento.setText(""); 
-    // TODO add your handling code here:
-    }//GEN-LAST:event_botaolimparclienteActionPerformed
-
-    private void botaolimparfilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparfilmeActionPerformed
-    nome.setText(""); 
-    categoria.setText("");
-    codigo.setText(""); 
-    quantidade.setText(""); 
-   
-    }//GEN-LAST:event_botaolimparfilmeActionPerformed
-
-    @SuppressWarnings("static-access")
-    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
-//(Nome,Categoria,Codigo,Quantidade,id)
-     Filme filme= new Filme(nome2.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());  
-// TODO add your handling code here:
-     FilmeController fCtr= new FilmeController ();
-        try {
-            fCtr.Cadastrar(filme);
-        } catch (SQLException ex) {
-            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-            
-                                                
-
-    }//GEN-LAST:event_jBCadastrarActionPerformed
-
-    @SuppressWarnings("static-access")
-    private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
-        try {
-    
-            java.util.Date dt1 = new SimpleDateFormat("dd/MM/yyyy").parse(data_de_nascimento.getText());
-             java.sql.Date  dataConvertida;
-                          
-            dataConvertida =  new java.sql.Date(dt1.getTime());
-              Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(), dataConvertida,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
-
-
-                //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
-             //Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),dt1,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
-             ClienteController cCtr= new ClienteController();
-             cCtr.Cadastrar(cliente);   
-        } catch (ParseException ex) {
-            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-       
-    }//GEN-LAST:event_cadatrarclienteActionPerformed
-
-    private void data_de_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_de_nascimentoActionPerformed
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_data_de_nascimentoActionPerformed
+        FilmeController f = new FilmeController();
+        Vector  s = f.getNomes();
+        //carrega os valore da função  getNomes
+        combo_filme.setModel(new  javax.swing.DefaultComboBoxModel(s));
+
+        ClienteController c = new ClienteController();
+        Vector cli = c.getNomes();
+
+        combo_cliente.setModel(new  javax.swing.DefaultComboBoxModel(cli));
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void combo_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_filmeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_filmeActionPerformed
+
+    private void idAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idAluguelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idAluguelActionPerformed
 
     private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
         System.exit(0);        // TODO add your handling code here:
@@ -559,41 +642,22 @@ data_de_nascimento.setText("");
     private void cadastraraluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraraluguelActionPerformed
         try {
             //Nota_fiscal,Data_aluguel,Data_devolução,idAluguel
-          ClienteController c = new  ClienteController();
-          FilmeController f = new FilmeController();
-       
+            ClienteController c = new  ClienteController();
+            FilmeController f = new FilmeController();
+
             int Cliente_idCliente = c.PegaIdPeloNomeSelecionado((String)combo_cliente.getSelectedItem());
-           int Filme_IdFilme = f.PegaIdPeloNomeSelecionado((String)combo_filme.getSelectedItem() );
+            int Filme_IdFilme = f.PegaIdPeloNomeSelecionado((String)combo_cliente.getSelectedItem() );
             Aluguel aluguel= new Aluguel(notafiscal.getText(),dataaluguel.getText(),datadevoluçao.getText(),Integer.parseInt(idAluguel.getText()),Cliente_idCliente,Filme_IdFilme);
             AluguelController controler= new AluguelController();
             controler.Cadastrar(aluguel);
         } catch (SQLException ex) {
             Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_cadastraraluguelActionPerformed
-
-    private void idAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idAluguelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idAluguelActionPerformed
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-    FilmeController f = new FilmeController();
-        Vector  s = f.getNomes();
-  //carrega os valore da função  getNomes
-         combo_filme.setModel(new  javax.swing.DefaultComboBoxModel(s));
-         
-         ClienteController c = new ClienteController();
-         Vector cli = c.getNomes();
-         
-         combo_cliente.setModel(new  javax.swing.DefaultComboBoxModel(cli));
-
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void data_aluguelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_data_aluguelFocusLost
         // TODO add your handling code here:
-       String data = data_aluguel.getText().toString();
+        String data = data_aluguel.getText().toString();
         String[] partes = data.split("/");
         int diaI = Integer.parseInt(partes[0]);
         int diaF = diaI+3;
@@ -601,6 +665,121 @@ data_de_nascimento.setText("");
         System.out.print(partes[0]);
     }//GEN-LAST:event_data_aluguelFocusLost
 
+    private void data_aluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_aluguelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_data_aluguelActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void botaolimparfilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparfilmeActionPerformed
+        nome.setText("");
+        categoria.setText("");
+        codigo.setText("");
+        quantidade.setText("");
+
+    }//GEN-LAST:event_botaolimparfilmeActionPerformed
+
+    @SuppressWarnings("static-access")
+    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
+        //(Nome,Categoria,Codigo,Quantidade,id)
+        Filme filme= new Filme(nome2.getText(),categoriafilme.getText(),codigofilme.getText(),quantidadefilme.getText());
+        // TODO add your handling code here:
+        FilmeController fCtr= new FilmeController ();
+        try {
+            fCtr.Cadastrar(filme);
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jBCadastrarActionPerformed
+
+    private void jBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsairActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jBsairActionPerformed
+
+    private void botaolimparclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparclienteActionPerformed
+
+        telefone.setText("");
+        endereço.setText("");
+        cpf.setText("");
+        email.setText("");
+        data_de_nascimento.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaolimparclienteActionPerformed
+
+    @SuppressWarnings("static-access")
+    private void cadatrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadatrarclienteActionPerformed
+        try {
+
+            java.util.Date dt1 = new SimpleDateFormat("dd/MM/yyyy").parse(data_de_nascimento.getText());
+            java.sql.Date  dataConvertida;
+
+            dataConvertida =  new java.sql.Date(dt1.getTime());
+            Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(), dataConvertida,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+
+            //Cliente(String nome, String endereco, String email, String data_de_nascimento, int telefone, int cpf)
+            //Cliente cliente= new Cliente(nome.getText(),endereço.getText(),email.getText(),dt1,Integer.parseInt(telefone.getText()),Integer.parseInt(cpf.getText()));
+            ClienteController cCtr= new ClienteController();
+            cCtr.Cadastrar(cliente);
+        } catch (ParseException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_cadatrarclienteActionPerformed
+
+    private void data_de_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_de_nascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_data_de_nascimentoActionPerformed
+
+    private void consultacpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultacpfActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_consultacpfActionPerformed
+
+    private void consultarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarcpfActionPerformed
+        try {
+            // TODO add 
+                
+                ClienteController clienteController = new ClienteController() ;
+                Cliente c = clienteController.getPessoaByCPF(Integer.parseInt(consultacpf.getText()));
+                if(c!=null){
+                areacliente.setText("================Resultado da Busca ================"
+                        + "\nNome: " + c.getNome()
+                        + "\nEndereço: " + c.getEndereco()
+                        + "\nCpf: " + c.getCpf()
+                        + "\nData de Nascimento: " + c.getData_de_nascimento()
+                        + "\nTelefone: " + c.getTelefone()
+                        + "\nEmail: " + c.getEmail()
+                );
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Loca_dora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+             
+        
+  
+        
+    }//GEN-LAST:event_consultarcpfActionPerformed
+
+    private void listarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarclienteActionPerformed
+ System.out.println("opa");
+           ClienteController clienteController = new ClienteController();
+            ArrayList<Cliente> lista = clienteController.getAll();
+            int linha = 0, coluna = 0;
+            for (Cliente lista1 : lista) {
+                tablecliente.setValueAt(lista1.getNome(), linha, coluna);
+                tablecliente.setValueAt(lista1.getEndereco(), linha, coluna + 1);
+                tablecliente.setValueAt(lista1.getCpf(), linha, coluna + 2);
+                tablecliente.setValueAt(lista1.getData_de_nascimento(), linha, coluna + 3);
+                tablecliente.setValueAt(lista1.getTelefone(), linha, coluna + 4);
+                tablecliente.setValueAt(lista1.getEmail(), linha, coluna + 5);
+                linha++;    }//GEN-LAST:event_listarclienteActionPerformed
+        }
     /**
      * @param args the command line arguments
      */
@@ -636,6 +815,7 @@ data_de_nascimento.setText("");
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areacliente;
     private javax.swing.JButton botaolimpar;
     private javax.swing.JButton botaolimparcliente;
     private javax.swing.JButton botaolimparfilme;
@@ -648,6 +828,8 @@ data_de_nascimento.setText("");
     private javax.swing.JLabel codigofilme;
     private javax.swing.JComboBox combo_cliente;
     private javax.swing.JComboBox combo_filme;
+    private javax.swing.JTextField consultacpf;
+    private javax.swing.JButton consultarcpf;
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField data_aluguel;
     private javax.swing.JTextField data_de_nascimento;
@@ -667,13 +849,19 @@ data_de_nascimento.setText("");
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JInternalFrame jInternalFrame5;
+    private javax.swing.JInternalFrame jInternalFrame6;
+    private javax.swing.JInternalFrame jInternalFrame7;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton listarcliente;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField nome2;
     private javax.swing.JLabel nomefilme;
@@ -681,6 +869,10 @@ data_de_nascimento.setText("");
     private javax.swing.JLabel notafiscal;
     private javax.swing.JTextField quantidade;
     private javax.swing.JLabel quantidadefilme;
+    private javax.swing.JTable tablecliente;
     private javax.swing.JTextField telefone;
     // End of variables declaration//GEN-END:variables
+
+
+    
 }

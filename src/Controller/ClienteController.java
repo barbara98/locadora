@@ -6,10 +6,13 @@ package Controller;
 
 import Model.Cliente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -22,6 +25,7 @@ import java.util.logging.Logger;
 
 //
 public class ClienteController {
+    private String cpf;
     //CRUD
     public void Cadastrar(Cliente c) throws SQLException {
         try {
@@ -91,5 +95,48 @@ public class ClienteController {
         return null;
     
     }
+
+    public Cliente getPessoaByCPF(int cpf) throws SQLException {
+       String sql = "SELECT * FROM Cliente WHERE CPF like '" + cpf+"';" ; //Consulta SQL
+        Util util = new Util(); //inicializando minha classe q faz conexão com banco de dados
+        Connection conexao = util.conecta(); //faz a conexão com banco
+        Statement statement = conexao.createStatement();//usa da conqxão para pegar a credencial para acesso ao banco
+        ResultSet result = statement.executeQuery(sql);//executa a consulta SQL e agora retoena valores, por isso ResultSet
+        Cliente c = null;  //declaração de variavel  pessoa 
+        while (result.next()) {
+    c = new Cliente(result.getString("Nome"), result.getString("Endereço"), result.getString("Email"), result.getInt("idCliente"), result.getInt("Telefone"), result.getInt("CPF"));// inicializa pessoa
+        
+        }
+        
+        return c ;
+    }
+
+    public ArrayList<Cliente> getAll() {
+try {
+            String sql = "SELECT * FROM Cliente";
+
+            Util util = new Util();
+            Connection conexao = util.conecta();
+            Statement statement = conexao.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            ArrayList<Cliente> lista = new ArrayList<Cliente>();
+            int count = 0;
+
+            while (result.next()) {
+                Cliente p = new Cliente(result.getString("Nome"), result.getString("Endereço"), result.getString("Email"), result.getInt("Data_de_nascimento"),result.getInt("Telefone") , result.getInt("CPF"));// inicializa pessoa
+                lista.add(p);
+            }
+  statement.close();
+            conexao.close();
+            return lista;
+          
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }   
     
+    }
+
 }
+    
